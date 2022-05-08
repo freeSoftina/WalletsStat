@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                background-color: #c0c0c0;
+            }
+            .stat1 {
+                width: 24.5%;
+                height: 100 %;
+                float: left;
+                display: table;
+                text-align: center;
+            }
+            .stat {
+                text-align: center;
+                font-size: 80%;
+            }
+            .stat2 {
+                width: 75%;
+                height: 100%;
+                float: right;
+                display: table;
+            }
+            .stat3 {
+                width: 75%;
+                height: 100%;
+                margin-top: 18px;
+                float: right;
+                display: table;
+            }
+            table {
+                width: 100%;
+                text-align: center;
+                font-size: 85%;
+                border: 1px;
+                border-style: solid;
+                border-spacing: 0px;
+                box-sizing: content-box;
+            }
+            td, th {
+                border: 1px solid #955;
+            }
+            #stat tr:nth-child(1) th:nth-child(2) {
+                padding: 2.5%;
+            }
+            #stat td:nth-child(even) {
+                width: 12%;
+            }
+            #stat td:nth-child(odd) {
+                width: 16%;
+            }
+            #stat td:first-child {
+                width: 42%;
+            }
+            #list {
+                font-size: 70%;
+            }
+            #list th, td {
+                width: 14%;
+            }
+            #list th:first-child, td:first-child {
+                width: 57%;
+            }
+            .st td:nth-child(even) {
+                width: 4%;
+            }
+            .st td:nth-child(odd) {
+                width: 7%;
+            }
+            .st td:first-child {
+                width: 10%;
+            }
+            button {
+                height: 50%;
+                width: 8%;
+                margin-top: 1%;
+                text-align: center;
+                vertical-align: middle;
+                font-size: 70%;
+            }
+            .list {
+                width: 25%;
+                margin-bottom: 1%;
+                font-size: 75%;
+            }
+            #listHold {
+                background-color: green;
+                color: black;
+            }
+            #listOther {
+                background-color: white;
+                color: gray;
+            }
+            #listAnother {
+                background-color: white;
+                color: gray;
+            }
+            span {
+                font-size: 70%;
+            }
+        </style>
+        <script type='text/javascript' src='baze/show'></script>
+        <script type='text/javascript' src='baze/list'></script>
+        <title>Статистика</title>
+    </head>
+
+    <body>
+
+        <div class='heading'>
+        </div>
+
+        <div class='stat1'>
+
+            <table id='stat'>
+                <tr>
+                    <th rowspan='2'> тип баланса </th>
+                    <th colspan='4'> всего       </th>
+                </tr>
+                <tr>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                </tr>
+            </table>
+            
+            <div class='stat'>
+                <button class='list' id='listHold'> холд </button>
+                <button class='list' id='listNotHoldMore100K'> не холд от 100К </button>
+                <button class='list' id='listNotHoldLess100K'> не холд до 100К </button>
+            </div>
+            
+            <table id='list'>
+                <thead>
+                    <tr>
+                        <th> адрес         </th>
+                        <th> баланс        </th>
+                        <th> структура     </th>
+                        <th> пар<br/>от 1К </th>
+                    </tr>
+                </thead>
+            </table>
+            
+            <button id='back'>&lt&lt</button>
+            <span id='count'></span>
+            <button id='next'>&gt&gt</button>
+            
+        </div>
+
+        <div class='stat2'>
+
+            <table id='stat1' class='st'>
+                <tr>
+                    <th rowspan='2'> тип баланса                  </th>
+                    <th colspan='4'> структура<br/>менее 1К       </th>
+                    <th colspan='4'> структура<br/>от 1К до 10К   </th>
+                    <th colspan='4'> структура<br/>от 10К до 100К </th>
+                    <th colspan='4'> структура<br/>от 100К до 1М  </th>
+                </tr>
+                <tr>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class='stat3'>
+
+            <table id='stat2' class='st'>
+                <tr>
+                    <th rowspan='2'> тип баланса                    </th>
+                    <th colspan='4'> структура<br/>от 1М до 10М     </th>
+                    <th colspan='4'> структура<br/>от 10М до 100М   </th>
+                    <th colspan='4'> структура<br/>от 100М до 1000М </th>
+                    <th colspan='4'> структура<br/>свыше 1000М      </th>
+                </tr>
+                <tr>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                    <th> кол-во           </th>
+                    <th> кол-во<br/>монет </th>
+                    <th> холд             </th>
+                    <th> пар              </th>
+                </tr>
+            </table>
+
+        </div>
+
+    </body>
+
+    <script>
+        let sum = function(i) {
+            let res = stat[i].reduce( function(total, item, index) { return index < 12 ? total += item : total; });
+            return i % 2 == 1 ? res / 100 : res;
+        };
+        
+        let array = [];
+        
+        let fillArray = function() {
+            for (let i = 0; i < 12; i++) {
+                let arr = [];
+                for (let j = 0; j < 4; j++) {
+                    let res = 0;
+                    for (let l = j; l < 32; l += 4) {
+                        res += stat[l][i];
+                    }
+                    arr.push(res);
+                }
+                array.push(arr);
+            }
+            let arr = [];
+            for (let i = 0; i < 4; i++) {
+                arr.push(array.reduce( function(total, item, index) { return index == 1 ? total = total[i] + item[i] : total += item[i]; }));
+            }
+            array.push(arr);
+        }();
+        
+        let rNames = ["менее 1", "от 1 до 100", "от 100 до 1К", "от 1К до 10К", "от 10К до 50К",
+                          "от 50К до 100К", "от 100К до 500К", "от 500К до 1М", "от 1М до 10М",
+                          "от 10М до 100М", "от 100М до 1000М", "более 1000М", "всего"];
+        
+        let textTd = function(i, j) {
+            if (j == 0) return rNames[i];
+            if (j > 0 && j < 33 && i == 12) return sum(j - 1);
+            if (j > 32) return (j - 33) % 2 == 1 ? array[i][j - 33] / 100 : array[i][j - 33];
+            return (j - 1) % 2 == 1 ? stat[j - 1][i] / 100 : stat[j - 1][i];
+        }
+
+        let heading = document.querySelector(".heading");
+        heading.setAttribute("style", "text-align:left; font-size:90%");
+        heading.textContent = "высота - " + stat[0][12];
+
+        let table = document.querySelector("#stat");
+
+        for (let i = 0; i < 14; i++) {
+            let tr = document.createElement("tr");
+            for (let j = 32; j < 37; j++) {
+                let td;
+                if (i != 13 || j != 33) {
+                    td = document.createElement("td");
+                }
+                if (i < 13) td.textContent = textTd(i, j == 32 ? 0 : j);
+                else {
+                    if (j == 32) {
+                        td.setAttribute("colspan", "2");
+                        td.textContent = "потенциальная эмиссия";
+                    } else if (j == 34) td.textContent = Math.floor((textTd(12, 34) + textTd(12, 36)) * 100) / 100;
+                }
+                if (i != 13 || j != 33) tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        let table1 = document.querySelector("#stat1");
+
+        for (let i = 0; i < 13; i++) {
+            let tr = document.createElement("tr");
+            for (let j = 0; j < 17; j++) {
+                let td = document.createElement("td");
+                td.textContent = textTd(i, j);
+                tr.appendChild(td);
+            }
+            table1.appendChild(tr);
+        }
+
+        let table2 = document.querySelector("#stat2");
+
+        for (let i = 0; i < 13; i++) {
+            let tr = document.createElement("tr");
+            for (let j = 16; j < 33; j++) {
+                let td = document.createElement("td");
+                td.textContent = textTd(i, j==16 ? 0 : j);
+                tr.appendChild(td);
+            }
+            table2.appendChild(tr);
+        }
+        
+        let result = [];
+        
+        let fillResult = function() {
+            for (let key in wallets) {
+                let arr = wallets[key];
+                let res = [];
+                res.push(key);
+                res.push(arr[0] / 100);
+                res.push(arr[1] / 100);
+                res.push(arr[2] / 100);
+                if (arr[3] == 1) res.push(0);
+                else if (arr[0] >= 10000000) res.push(1);
+                     else res.push(2);
+                let len = result.length;
+                if (!len) result.push(res);
+                else {
+                    for (let i = 0; i < len; i++) {
+                        if (result[i][3] < res[3]) {
+                            result.splice(i, 0, res);
+                            break;
+                        }
+                        if (i == len - 1) result.push(res);
+                    }
+                }
+            }
+        }();
+        
+        let data = document.getElementById("list");
+        
+        let index = 0;
+        let selector = 0;
+        let totalCount = 1;
+        let totalPar = 0;
+        let quantity = 15;
+        
+        let textContentTd = function(i, j) {
+            let array = result.filter( function(item){return item[4] === selector});
+            totalCount = array.length;
+            totalPar = array.reduce( function(total, item, index){ return index == 1 ? total = total[3] + item[3] : total += item[3]});  
+            return array[i][j];
+        }
+        
+        let fillData = function(index) {
+            let tb = data.querySelector("tbody");
+            if (tb) data.removeChild(tb);
+            tb = document.createElement("tbody");
+            for (let i = 0; i < (index + quantity < totalCount ? quantity : totalCount - index); i++) {
+                let tr = document.createElement("tr");
+                for (let j = 0; j < 4; j++) {
+                    let td = document.createElement("td");
+                    td.textContent = textContentTd(index + i, j);
+                    tr.appendChild(td);
+                }
+                tb.appendChild(tr);
+            }
+            let tr = document.createElement("tr");
+            let td = document.createElement("td");
+            td.setAttribute("colspan", "4");
+            td.textContent = `всего - ${totalCount} шт., пар - ${Math.floor(totalPar * 100) / 100}`;
+            tr.appendChild(td);
+            tb.appendChild(tr);
+            data.appendChild(tb);
+            let count = document.getElementById("count");
+            count.textContent = `c ${index + 1} по ${index + quantity > totalCount ? totalCount : index + quantity}`;
+        }
+        
+        fillData(0);
+        
+        let back = document.getElementById("back");
+        back.addEventListener("click", function(){ index > 0 ? index -= quantity : 0; fillData(index); }, false);
+        
+        let next = document.getElementById("next");
+        next.addEventListener("click", function(){ index + quantity < totalCount ? index += quantity : index ; fillData(index); }, false);
+        
+        let listHold = document.getElementById("listHold");
+        listHold.addEventListener("click", function(){ selector = 0; index = 0; fillData(index); listHold.setAttribute("style", "background-color: green; color: black"); listNotHoldMore100K.setAttribute("style", "background-color: white; color: gray"); listNotHoldLess100K.setAttribute("style", "background-color: white; color: gray"); }, false);
+        
+        let listNotHoldMore100K = document.getElementById("listNotHoldMore100K");
+        listNotHoldMore100K.addEventListener("click", function(){ selector = 1; index = 0; fillData(index); listNotHoldMore100K.setAttribute("style", "background-color: green; color: black"); listHold.setAttribute("style", "background-color: white; color: gray"); listNotHoldLess100K.setAttribute("style", "background-color: white; color: gray"); }, false);
+        
+        let listNotHoldLess100K = document.getElementById("listNotHoldLess100K");
+        listNotHoldLess100K.addEventListener("click", function(){ selector = 2; index = 0; fillData(index); listNotHoldLess100K.setAttribute("style", "background-color: green; color: black"); listHold.setAttribute("style", "background-color: white; color: gray"); listNotHoldMore100K.setAttribute("style", "background-color: white; color: gray"); }, false);
+        
+    </script>
+</html>
